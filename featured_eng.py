@@ -11,4 +11,5 @@ data['AP_RH'] = data['AP'] * data['RH']
 
 # Save the new dataframe
 data.to_csv('features_data.csv', index=False)
+print(data.head())
 print("Feature engineering completed and saved to 'features_data.csv'.")

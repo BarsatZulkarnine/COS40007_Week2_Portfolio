@@ -4,14 +4,15 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 
 # Load the datasets
-data = pd.read_csv('normalized_data.csv')
+data = pd.read_csv('cleaned_data.csv')
+normalized_data = pd.read_csv('normalized_data.csv')
 features_data = pd.read_csv('features_data.csv')
 selected_features_data = pd.read_csv('selected_features_data.csv')
 
 # Define feature sets
 feature_sets = {
     "Model 1": data[['AT', 'V', 'AP', 'RH']],  # all features without normalization and without composite features
-    "Model 2": data[['AT', 'V', 'AP', 'RH', 'PE_Class']],  # all features with normalization and without composite features
+    "Model 2": normalized_data[['AT', 'V', 'AP', 'RH', 'PE_Class']],  # all features with normalization and without composite features
     "Model 3": features_data[['AT', 'V', 'AP', 'RH', 'AT_V', 'AT_AP', 'V_RH', 'AP_RH']],  # all features with normalization and containing composite features
     "Model 4": selected_features_data[['AT', 'V', 'AP', 'RH', 'AT_V', 'AT_AP', 'V_RH', 'AP_RH']],  # selected features with normalization
     "Model 5": selected_features_data[['AT', 'V', 'AP', 'RH']]  # selected feature without normalization
