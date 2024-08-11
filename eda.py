@@ -3,7 +3,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import itertools
 
-# Load the cleaned dataset
 data = pd.read_csv('cleaned_data.csv')
 
 # Univariate Analysis
@@ -22,13 +21,12 @@ for i, (ax, color) in enumerate(zip(axes.flatten(), cs)):
         ax.set_title(f'{cols[i]} distribution', color="navy")
         ax.set_xlabel("")
     else:
-        fig.delaxes(ax)  # Remove empty subplots
+        fig.delaxes(ax) 
 
 plt.tight_layout()
 plt.show()
 
 # Multivariate Analysis
-# Pairplot
 sns.pairplot(data[cols], diag_kind='kde', corner=True)
 plt.show()
 
